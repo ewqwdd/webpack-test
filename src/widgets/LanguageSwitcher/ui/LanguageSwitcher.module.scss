@@ -1,0 +1,22 @@
+.buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.button {
+    font-weight: 800;
+}
+
+.button:disabled {
+    opacity: 0.8;
+    cursor: default;
+    pointer-events: none;
+}
+
+.inverted {
+    color: var(--inverted-primary-color);
+}
+
+.inverted:disabled {
+    opacity: 0.6;
+}

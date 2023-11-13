@@ -1,18 +1,21 @@
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import { WebpackPluginInstance } from "webpack";
-import { buildParams } from "./types/config";
-import MiniCssExtractPlugin from "mini-css-extract-plugin";
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import webpack, { type WebpackPluginInstance } from 'webpack'
 
+import { type buildParams } from './types/config'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
-export default function buildPlugins({paths: {html}}: buildParams): WebpackPluginInstance[]{
-
+export default function buildPlugins(params: buildParams): WebpackPluginInstance[] {
     return [
         new HtmlWebpackPlugin({
-            template: html
+            template: params.paths.html
         }),
         new MiniCssExtractPlugin({
             filename: 'css/[name].[contenthash:8].css',
             chunkFilename: 'css/[name].[contenthash:8].css'
-        })
+        }),
+        new webpack.DefinePlugin({
+            _IS_DEV_: JSON.stringify(params.isDev)
+        }),
+        new webpack.HotModuleReplacementPlugin()
     ]
 }
