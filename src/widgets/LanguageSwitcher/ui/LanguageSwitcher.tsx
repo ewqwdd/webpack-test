@@ -33,7 +33,7 @@ const LanguageSwitcher = ({
         <div className={classNames(styles.buttons, {}, [className])} {...props}>
             <AppButton
                 theme={ThemeButton.CLEAR}
-                disabled={i18n.language == Language.RU}
+                disabled={i18n.language === Language.RU}
                 onClick={toggleRu}
                 className={classNames(styles.button, { [styles.inverted]: inverted })}
             >
@@ -41,7 +41,7 @@ const LanguageSwitcher = ({
             </AppButton>
             <AppButton
                 theme={ThemeButton.CLEAR}
-                disabled={i18n.language == Language.ENG}
+                disabled={i18n.language === Language.ENG}
                 onClick={toggleEng}
                 className={classNames(styles.button, { [styles.inverted]: inverted })}
             >

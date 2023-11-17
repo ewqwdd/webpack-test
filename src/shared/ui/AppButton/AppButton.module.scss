@@ -7,3 +7,12 @@
     outline: none;
     cursor: pointer;
 }
+
+.outline {
+    padding: 10px 6px;
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    cursor: pointer;
+}

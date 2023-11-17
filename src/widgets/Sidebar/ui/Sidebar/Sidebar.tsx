@@ -16,9 +16,12 @@ const Sidebar = () => {
 
     return (
         <div
+            data-testid="sidebar"
             className={classNames(styles.sidebar, { [styles.collapsed]: collapsed })}
         >
-            <AppButton onClick={handleClick}>{t('toggle')}</AppButton>
+            <AppButton data-testid="toggle" onClick={handleClick}>
+                {t('toggle')}
+            </AppButton>
 
             <div className={styles.switchers}>
                 <ThemeSwitcher inverted={true} />

@@ -1,13 +1,18 @@
 import { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { routeConfig } from 'shared/config/routeConfig/routeConfig'
+import { PageLoading } from 'widgets/PageLoading'
 
 export default function Router() {
     return (
-        <Suspense fallback={'loading...'}>
+        <Suspense>
             <Routes>
                 {Object.values(routeConfig).map((elem) => (
-                    <Route path={elem.path} element={elem.element} />
+                    <Route key={elem.path} path={elem.path} element={
+                        <Suspense fallback={<PageLoading />}>
+                            {elem.element}
+                        </Suspense>
+                    } />
                 ))}
             </Routes>
         </Suspense>

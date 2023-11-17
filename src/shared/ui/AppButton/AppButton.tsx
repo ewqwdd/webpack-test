@@ -3,7 +3,8 @@ import { classNames } from 'shared/lib/classname'
 import styles from './AppButton.module.scss'
 
 export enum ThemeButton {
-    CLEAR = 'clear'
+    CLEAR = 'clear',
+    OUTLINE = 'outline'
 }
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {

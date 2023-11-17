@@ -1,4 +1,8 @@
 {
     "title": "hello world!",
-    "toggle": "toggle"
+    "toggle": "toggle",
+    "Page not found.": "Page not found.",
+    "Main page": "Main page",
+    "Oops! Something went wrong.": "Oops! Something went wrong.",
+    "refresh": "Refresh"
 }

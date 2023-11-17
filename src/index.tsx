@@ -4,6 +4,7 @@ import { ThemeProvider } from 'app/providers/Theme'
 import App from 'app/App'
 
 import 'shared/config/i18/i18'
+import { ErrorBoundary } from 'app/ErrorBoundary'
 
 const root = ReactDOM.createRoot(
     document.getElementById('root')
@@ -11,8 +12,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <BrowserRouter>
-        <ThemeProvider>
-            <App />
-        </ThemeProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ErrorBoundary>
     </BrowserRouter>
 )

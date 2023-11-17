@@ -4,22 +4,20 @@ import { classNames } from 'shared/lib/classname'
 import { Router } from './router'
 import { NavBar } from 'widgets/Navbar'
 import { Sidebar } from 'widgets/Sidebar'
-import { type ReactNode, Suspense } from 'react'
+import { type ReactNode } from 'react'
 
 export default function App(): ReactNode {
     const { theme } = useTheme()
 
     return (
-        <div className={classNames('app', {}, [theme])}>
-            <Suspense>
-                <NavBar />
-                <div className="content-page">
-                    <Sidebar />
-                    <div>
-                        <Router />
-                    </div>
+        <div className={classNames('app', {}, [theme, '.min-h-screen{'])}>
+            <NavBar />
+            <div className="content-page">
+                <Sidebar />
+                <div className='content'>
+                    <Router />
                 </div>
-            </Suspense>
+            </div>
         </div>
     )
 }

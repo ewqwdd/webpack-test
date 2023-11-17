@@ -16,7 +16,19 @@
     },
     "ts-node": {
         "compilerOptions": {
-          "module": "CommonJS"
+          "module": "CommonJS",
         }
   },
+  "include": [
+    "./config/jest/setupTest.ts",
+    "./src/app/types/global.d.ts",
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./.eslintrc.js",
+    "./babel.config.js",
+    "./webpack.config.ts",
+    "./config/jest",
+    "./config/loaders"
+  ],
+
 }
