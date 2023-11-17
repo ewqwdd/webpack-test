@@ -6,7 +6,7 @@ import { type buildParams } from './types/config'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 export default function buildPlugins(params: buildParams): WebpackPluginInstance[] {
-    return [
+    const plugins = [
         new HtmlWebpackPlugin({
             template: params.paths.html
         }),
@@ -16,10 +16,17 @@ export default function buildPlugins(params: buildParams): WebpackPluginInstance
         }),
         new webpack.DefinePlugin({
             _IS_DEV_: JSON.stringify(params.isDev)
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false
         })
+
     ]
+    if (params.isDev) {
+        // @ts-expect-error hz blya
+        plugins.push(new webpack.HotModuleReplacementPlugin())
+        // @ts-expect-error hz blya
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false
+        }))
+    }
+
+    return plugins
 }
