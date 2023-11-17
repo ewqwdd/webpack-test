@@ -1,0 +1,30 @@
+name: Linting, testing, building
+on: 
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [ 20.x ]
+
+    steps:
+        - uses: actions/checkout@v2
+        - name: Starting Node.js ${{ matrix.node-version }}
+          uses: actions/setup-node@v1
+          with:
+            node-version: ${{ matrix.node-version }}
+        - name: install modules
+          uses: npm install
+        - name: build production
+          uses: npm run build:prod
+        - name: linting typescript
+          uses: npm run lint:ts
+        - name: linting scss
+          uses: npm run lint:scss
+        - name: Unit testing
+          uses: npm run test:unit
+         
