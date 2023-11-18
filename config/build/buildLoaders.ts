@@ -2,6 +2,7 @@ import { type RuleSetRule } from 'webpack'
 import { type buildParams } from './types/config'
 import cssLoader from '../loaders/cssLoader'
 import svgLoader from '../loaders/svgLoader'
+import fontLoader from '../loaders/fontLoader'
 
 export default function buildLoaders({ isDev }: buildParams): RuleSetRule[] {
     const cssLoader_ = cssLoader(isDev)
@@ -22,5 +23,7 @@ export default function buildLoaders({ isDev }: buildParams): RuleSetRule[] {
         ]
     }
 
-    return [fileLoader, tsLoader, cssLoader_, svgLoader_]
+    const fontLoader_ = fontLoader()
+
+    return [fileLoader, tsLoader, cssLoader_, svgLoader_, fontLoader_]
 }

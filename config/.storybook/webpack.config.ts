@@ -1,7 +1,7 @@
 import webpack, {Configuration, } from "webpack"
 import {type buildParams} from '../build/types/config'
 import cssLoader from '../loaders/cssLoader'
-import svgLoader from '../loaders/svgLoader'
+import fontLoader from '../loaders/fontLoader'
 import path from "path"
 
 export default ({ config }: {config: Configuration}) => {
@@ -45,6 +45,9 @@ export default ({ config }: {config: Configuration}) => {
         use: ['@svgr/webpack']
     })
     config.module!.rules!.push(cssLoader(true))
+    config.module!.rules!.push(fontLoader())
+
+    config.resolve?.roots?.push(path.resolve(__dirname, '../../public'))
 
     return config
 }
