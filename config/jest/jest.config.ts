@@ -55,7 +55,7 @@ const config: Config = {
     moduleNameMapper: {
         '\\.(scss)$': 'identity-obj-proxy',
         '\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$':
-      path.resolve(__dirname, 'jestEmptyComponent.tsx')
+      path.resolve(__dirname, 'JestEmptyComponent.tsx')
     },
     setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts']
 
