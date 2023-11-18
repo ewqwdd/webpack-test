@@ -28,7 +28,7 @@ jobs:
         - name: Unit testing
           run: npm run unit
         - name: building storybook
-          run: npm run build-storybook
+          run: npm run storybook
         - name: screenshot testing  
-          run: npm run loki:ci
+          run: npm run loki
          
