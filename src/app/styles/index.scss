@@ -4,9 +4,9 @@
 @import "themes/light";
 
 @font-face {
-    font-family: "Consolas";
+    font-family: Consolas;
     src: url("../fonts/CONSOLA.ttf") format("truetype");
-  }
+}
 
 .app{
     font: var(--font-m);
