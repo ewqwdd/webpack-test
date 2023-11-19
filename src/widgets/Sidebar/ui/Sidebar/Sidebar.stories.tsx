@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import Sidebar from './Sidebar'
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator'
 import { Theme } from 'shared/config/theme/ThemeContext'
+import { RouterDecorator } from 'shared/config/storybook/RouterDecorator'
 
 const meta = {
     title: 'widgets/Sidebar',
@@ -11,7 +12,8 @@ const meta = {
         layout: 'centered'
     },
     tags: ['autodocs'],
-    argTypes: {}
+    argTypes: {},
+    decorators: [RouterDecorator]
 } satisfies Meta<typeof Sidebar>
 
 export default meta
