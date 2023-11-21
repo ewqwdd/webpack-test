@@ -34,10 +34,7 @@ export default ({ config }: {config: Configuration}) => {
             }
         }
         return rule;
-    }).filter(Boolean); // Remove falsy values (null, undefined, false, etc.)
-    
-    //@ts-ignore
-    config.module.rules = rules;
+    }).filter(Boolean); // excludes svg from loaders that processing it
 
     config.module!.rules!.push({
         test: /\.svg$/i,

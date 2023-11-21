@@ -1,8 +1,8 @@
 import { createContext } from 'react'
 
 export enum Theme {
-    light = 'light',
-    dark = 'dark'
+    light = 'app_light_theme',
+    dark = 'app_dark_theme'
 }
 
 export interface ThemeContextProps {
@@ -10,6 +10,6 @@ export interface ThemeContextProps {
     setTheme?: (theme: Theme) => void
 }
 
-export const ThemeContext = createContext<ThemeContextProps>({})
-
-export const localStorageThemeKey = 'theme '
+export const ThemeContext = createContext<ThemeContextProps>({ theme: Theme.light })
+document.body.className = Theme.light
+export const localStorageThemeKey = 'theme'

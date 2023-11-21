@@ -8,9 +8,12 @@
     src: url("../fonts/CONSOLA.ttf") format("truetype");
 }
 
-.app{
+body {
     font: var(--font-m);
     color: var(--primary-color);
+}
+
+.app{
     background: var(--bg-color);
 }
 

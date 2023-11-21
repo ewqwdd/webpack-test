@@ -4,10 +4,10 @@ module.exports = {
         es2021: true
     },
     extends: [
-        "standard-with-typescript",
-        "plugin:react/recommended",
-        "plugin:i18next/recommended",
-        "plugin:storybook/recommended"
+        'standard-with-typescript',
+        'plugin:react/recommended',
+        'plugin:i18next/recommended',
+        'plugin:storybook/recommended'
     ],
     overrides: [
         {
@@ -20,6 +20,13 @@ module.exports = {
             parserOptions: {
                 sourceType: 'script'
             }
+        },
+        {
+            files: ['**/src/**/*.{test, stories}.{ts, tsx}'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+                'max-len': 'off'
+            }
         }
     ],
     parserOptions: {
@@ -29,7 +36,8 @@ module.exports = {
     },
     plugins: [
         'react',
-        'i18next'
+        'i18next',
+        'react-hooks'
     ],
     rules: {
         'react/react-in-jsx-scope': 0,
@@ -42,9 +50,14 @@ module.exports = {
         'react/jsx-indent': [1, 4],
         '@typescript-eslint/indent': [1, 4],
         '@typescript-eslint/explicit-function-return-type': 'off',
-        '@typescript-eslint/no-misused-promises': 'off'
+        '@typescript-eslint/no-misused-promises': 'off',
+        'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+        'react-hooks/exhaustive-deps': 'error' // Checks effect dependencies
     },
     globals: {
         _IS_DEV_: true
-    }
+    },
+    ignorePatterns: [
+        'json-server'
+    ]
 }
